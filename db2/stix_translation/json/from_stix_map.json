@@ -1,0 +1,31 @@
+{
+  "user-account": {
+    "fields": {
+      "user_id": ["UID"]
+    }
+  },
+  "ipv4-addr": {
+    "fields": {
+      "value": ["SIP", "DIP"]
+    }
+  },
+  "network-traffic": {
+    "fields": {
+      "src_port": ["SPORT"],
+      "dst_port": ["DPORT"],
+      "protocols[*]": ["PROTOCOL"],
+      "start": ["STIME"],
+      "end": ["ETIME"],
+      "src_ref.value": ["SIP", "sourcemac"],
+      "dst_ref.value": ["DIP", "destinationmac"],
+      "src_packets": ["PACKETS"],
+      "ipfix": {
+        "flowDurationMilliseconds": ["DURATION"],
+        "icmpTypeIPv4": ["ICMP_TYPE"],
+        "icmpCodeIPv4": ["ICMP_CODE"],
+        "vlanId": ["INPUT"],
+        "postVlanId": ["OUTPUT"]
+      }
+    }
+  }
+}

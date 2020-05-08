@@ -1,0 +1,58 @@
+{
+	"UID": {
+		"key": "user-account.user_id",
+		"transformer": "ToString"
+	},
+	"SPORT": {
+		"key": "network-traffic.src_port",
+		"object": "nt",
+		"transformer": "ToInteger"
+	},
+	"DPORT": {
+		"key": "network-traffic.dst_port",
+		"object": "nt",
+		"transformer": "ToInteger"
+	},
+	"STIME": {
+		"key": "last_observed",
+		"transformer": "EpochToTimestamp",
+		"cybox": false
+	},
+	"ETIME": {
+			"key": "first_observed",
+			"transformer": "EpochToTimestamp",
+			"cybox": false
+	},
+	"SIP": [
+		{
+			"key": "ipv4-addr.value",
+			"object": "src_ip"
+		},
+		{
+			"key": "network-traffic.src_ref",
+			"object": "nt",
+			"references": "src_ip"
+		}
+	],
+	"DIP": [
+		{
+			"key": "ipv4-addr.value",
+			"object": "dst_ip"
+		},
+		{
+			"key": "network-traffic.dst_ref",
+			"object": "nt",
+			"references": "dst_ip"
+		}
+	],
+	"PACKETS": {
+		"key": "network-traffic.src_packets",
+		"object": "nt",
+		"transformer": "ToInteger"
+	},
+	"DURATION": {
+		"key": "network-traffic.ipfix.flowDurationMilliseconds",
+		"object": "nt",
+		"tranformer": "ToString"
+	}
+}
